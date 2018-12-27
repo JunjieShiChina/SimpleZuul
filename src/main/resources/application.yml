@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: SimpleZuul
+ 
+server:
+  port: 8769
+  
+security:
+  user:
+    name: zuul
+    password: zuul
+    
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka:eureka@192.168.1.7:8761/eureka/,http://eureka:eureka@192.168.1.21:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    
+zuul:
+  routes:
+    gateway:
+      path: /gateway/**
+      service-id: SIMPLEUSERSERVER
